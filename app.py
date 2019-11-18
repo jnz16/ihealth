@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import requests, os 
 
 app= Flask('BreastApp')
-
 @app.route("/")
 def home_page():
     return render_template("index.html")
