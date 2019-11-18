@@ -15,7 +15,7 @@ def home_page():
 def other_page():
 	return render_template("other_page.html")
 
-@app.route("/userreport", methods=["GET", "POST"])
+@app.route("/userreport", methods=["GET","POST"])
 def user_name():
 	#We use the request module to easily collect all the data input into the form
 	form_data = request.form["name"]
@@ -23,5 +23,6 @@ def user_name():
         return render_template("user_name.html", symptomresult=results, user_data=form_data)
     if request.form.get("swallen") == 'false' or request.form.get("lump") == 'false' or request.form.get("nipple") == 'false' and request.form.get("skin") == 'true' and request.form.get("pain") == 'true':  
         return render_template("wait48h.html", symptomresult=results, user_data=form_data)
+
 
 app.run(debug=True)
