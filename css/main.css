@@ -38,11 +38,11 @@ html, body {
 
 #home-cover {
   height: 100%;
-  background-image:
-	  linear-gradient(to right bottom,
-     rgba(144, 114, 210, 0.7),
+  background-color: rgba(227, 132, 240, 0.7);
+	  /*linear-gradient(to right bottom,
+     rgba(227, 132, 240, 0.7),
      rgba(245, 235, 255, 0.7)),
-    url("../img/cup.jpg");
+    url("../img/equality.jpg");
   /*opacity: 0.8;
   filter: alpha(opacity=80);
   144, 114, 210
@@ -70,11 +70,6 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-#main {
-  height: 100%;
-}
-
-
 /*------------------------------------
         PARALLAX EFFECT GRAL
  -------------------------------------*/
@@ -101,6 +96,9 @@ html, body {
     color: #fff;
   }
 
+  .btn-toolbar .btn{
+    margin-right: 50px;
+  }
 
   .btn-white:hover,
   .btn-white:focus {
@@ -225,20 +223,6 @@ html, body {
 a {
     color: #b96bf4;
   }
-
-  /*------------------------------------
-                SYMPTOMS
-  -------------------------------------*/
-  #symptoms {
-    height: 100%;
-    width: 100%;
-    padding: 120px;
-    background-color: rgba(144, 114, 210, 0.7);
-  }
-
-  
-
-
   /*------------------------------------
                 QUOTE
   -------------------------------------*/
