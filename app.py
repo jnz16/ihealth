@@ -17,12 +17,14 @@ def other_page():
 
 @app.route("/userreport", methods=["GET","POST"])
 def user_name():
-	#We use the request module to easily collect all the data input into the form
-	form_data = request.form["name"]
-	if request.form.get("swallen") == 'true' or request.form.get("lump") == 'true' or frequest.form.get("nipple") == 'true':
-        return render_template("user_name.html", symptomresult=results, user_data=form_data)
-    if request.form.get("swallen") == 'false' or request.form.get("lump") == 'false' or request.form.get("nipple") == 'false' and request.form.get("skin") == 'true' and request.form.get("pain") == 'true':  
-        return render_template("wait48h.html", symptomresult=results, user_data=form_data)
+	form_data = request.form
+    name = form_data["name"]
+    symptoms = form_data.getlist("checkbox")
+    print(symptoms)
 
+    if ("swollen" in symptoms) or ("lump" in symptoms) or ("nipple" in symptoms):
+        return render_template("/templates/referGP.html", symptomresult=symptoms, user_data=form_data)
+    if ("dimpling" in symptoms) or ("pain" in symptoms):  
+        return render_template("/templates/wait48h.html", symptomresult=symptoms, user_data=form_data)
 
 app.run(debug=True)
