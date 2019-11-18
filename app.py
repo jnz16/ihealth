@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 #These are python provided modules
 import requests, os
 
-app = Flask("MyExampleApp")
+app = Flask("BreastApp")
 
 @app.route("/")
 def home_page():
@@ -15,33 +15,13 @@ def home_page():
 def other_page():
 	return render_template("other_page.html")
 
-@app.route("/username", methods=["POST"])
+@app.route("/userreport", methods=["GET", "POST"])
 def user_name():
 	#We use the request module to easily collect all the data input into the form
-	form_data = request.form
-	input_movie_name = form_data["movie"]
-
-	results = get_movies(input_movie_name)
-
-	#The second argument of the render_template method lets us send data into our html form
-	#You can pass multiple things in - just separate them with commas
-	#You can also pass in data in lists, and then pull out items from the list within the.html file itself!
-	return render_template("user_name.html", movieresults=results, user_data=form_data)
-
-def get_movies(input_movie_name):
-	load_dotenv();
-	api_key = os.getenv("OMDB_API_KEY")
-	
-	endpoint = 'http://www.omdbapi.com'
-	payload = {"apikey": api_key, "s":input_movie_name}
-	response = requests.get(endpoint, params=payload)
-
-	json_data = response.json()
-
-	#You'll see any printed data in your terminal - helpful to understand what's happening, and to debug
-	print "JSON response from the API call:"
-	print json_data
-
-	return json_data["Search"]
+	form_data = request.form["name"]
+	if request.form.get("swallen") == 'true' or request.form.get("lump") == 'true' or frequest.form.get("nipple") == 'true':
+        return render_template("user_name.html", symptomresult=results, user_data=form_data)
+    if request.form.get("swallen") == 'false' or request.form.get("lump") == 'false' or request.form.get("nipple") == 'false' and request.form.get("skin") == 'true' and request.form.get("pain") == 'true':  
+        return render_template("wait48h.html", symptomresult=results, user_data=form_data)
 
 app.run(debug=True)

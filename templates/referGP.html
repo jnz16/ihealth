@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>Example Flask App</title>
+		<title>ReferGP</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--Link CSS files here - I've linked custom & BootStrap CSS files-->
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
@@ -20,7 +20,7 @@
 				<!--This is displayed via Jinja2 syntax - look at the documentation online-->
 				<!--With Jinja2, you can also loop through a list, like we are here-->
 				<h2 class="mb-4">Hey {{user_data.name}}, here is your symptoms report:</h2>
-					{% for movie in movieresults %}
+					{% for symptom in symptomresult %}
 						<p>{{ movie.Title }}</p>
 						<br>
 					{% endfor %}
