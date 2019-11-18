@@ -23,8 +23,8 @@ def user_name():
     print(symptoms)
 
     if ("swollen" in symptoms) or ("lump" in symptoms) or ("nipple" in symptoms):
-        return render_template("/templates/referGP.html", symptomresult=symptoms, user_data=form_data)
+        return render_template("referGP.html", symptomresult=symptoms, user_data=form_data)
     if ("dimpling" in symptoms) or ("pain" in symptoms):  
-        return render_template("/templates/wait48h.html", symptomresult=symptoms, user_data=form_data)
+        return render_template("wait48h.html", symptomresult=symptoms, user_data=form_data)
 
 app.run(debug=True)
