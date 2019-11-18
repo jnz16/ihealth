@@ -91,14 +91,16 @@
 
 <section id="symptoms" class="text-center">
     <div id="username" class="animated zoomIn">
-      <form method="post" action="/apiexample">
+      <form method="post" action="/username">
         <div class="form-group">
           <label for="name">Enter your name:</label>
           <input type="name" name="name" id="name" required="required">
         </div>
-        
+      </form>
+    
+    <form method="post" action="/symptomchoice">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <input class="form-check-input" type="checkbox" value="" id="pain">
       <label class="form-check-label" for="defaultCheck1">Breast Pain</label>
     </div>
 
@@ -118,7 +120,8 @@
     <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
         <label class="form-check-label" for="defaultCheck1">Dimpling of the Skin</label>
-    </div>      
+    </div>   
+  </form>   
 </section>
 
 

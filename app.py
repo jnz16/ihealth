@@ -15,8 +15,8 @@ def home_page():
 def other_page():
 	return render_template("other_page.html")
 
-@app.route("/apiexample", methods=["POST"])
-def api_example():
+@app.route("/username", methods=["POST"])
+def user_name():
 	#We use the request module to easily collect all the data input into the form
 	form_data = request.form
 	input_movie_name = form_data["movie"]
@@ -26,7 +26,7 @@ def api_example():
 	#The second argument of the render_template method lets us send data into our html form
 	#You can pass multiple things in - just separate them with commas
 	#You can also pass in data in lists, and then pull out items from the list within the.html file itself!
-	return render_template("api_example.html", movieresults=results, user_data=form_data)
+	return render_template("user_name.html", movieresults=results, user_data=form_data)
 
 def get_movies(input_movie_name):
 	load_dotenv();
